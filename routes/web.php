@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('get-event-list',[App\Http\Controllers\HomeController::class, 'getEvent'])->name('get-event-list');
+Route::post('add-event',[App\Http\Controllers\HomeController::class, 'create']);
+Route::get('view-event/{id}',[App\Http\Controllers\HomeController::class, 'show']);
+Route::patch('update',[App\Http\Controllers\HomeController::class, 'update']);
+Route::get('delete-event/{id}',[App\Http\Controllers\HomeController::class, 'destroy']);
+
